@@ -1,0 +1,37 @@
+
+/* COLORS: 
+light green :#7ed56f
+medium green :#55c57a
+dark green :#28b485 */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*padding and border is included in div's
+                            height and width*/
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /*line height is 1.7x that of orignal element*/
+    color: #777;
+    padding: 30px;
+}
+.header{
+    height: 95vh; /*95% of viewport height*/
+    /*viewport: user's visible area of a webpage*/
+    background-image: 
+        linear-gradient(
+            to right, /*Direction*/
+            #7ed56fd1, /*First color, LAst 2 digits show opacity*/
+            #28b485d1 /*second color*/
+        ) ,  url(../img/hero.jpg);
+    /*Linear gradient adds a color gradient in the div*/
+    
+    background-size: cover; /*Always fits the bg img in the viewport*/;
+    background-position: top; /*Top of the img always stays with top of the container*/
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%)
+    /*clip-path clips the div in a particular polygon. We have to mention coordinates of 4 sides- top, right, bottom, left*/
+}
