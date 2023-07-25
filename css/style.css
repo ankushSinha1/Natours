@@ -20,18 +20,54 @@ body{
     padding: 30px;
 }
 .header{
+    position: relative;
     height: 95vh; /*95% of viewport height*/
     /*viewport: user's visible area of a webpage*/
     background-image: 
         linear-gradient(
             to right, /*Direction*/
-            #7ed56fd1, /*First color, LAst 2 digits show opacity*/
-            #28b485d1 /*second color*/
+            #7ed56fe1, /*First color, LAst 2 digits show opacity*/
+            #28b485e1 /*second color*/
         ) ,  url(../img/hero.jpg);
     /*Linear gradient adds a color gradient in the div*/
     
     background-size: cover; /*Always fits the bg img in the viewport*/;
     background-position: top; /*Top of the img always stays with top of the container*/
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%)
+    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%)
     /*clip-path clips the div in a particular polygon. We have to mention coordinates of 4 sides- top, right, bottom, left*/
+}
+.logo-box{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    /*40px from parent element's border whose position is set to relative*/
+}
+.logo{
+    height: 35px;
+}
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase;
+}
+.heading-primary-main{
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+.heading-primary-sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+
+}
+.text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /*This will set the starting coordinate of element at (40%, 50%) of the screen. With reference from the parent element*/
+    transform: translate(-50%, -50%);
+    /*By doing this, we shift the element by (-1/2, -1/2) times from the same coordinate. With reference from the same element*/
 }
