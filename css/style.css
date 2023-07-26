@@ -26,15 +26,17 @@ body{
     background-image: 
         linear-gradient(
             to right, /*Direction*/
-            #7ed56fe1, /*First color, LAst 2 digits show opacity*/
-            #28b485e1 /*second color*/
+            #7ed56fbb, /*First color, LAst 2 digits show opacity*/
+            #28b485bb /*second color*/
         ) ,  url(../img/hero.jpg);
     /*Linear gradient adds a color gradient in the div*/
     
     background-size: cover; /*Always fits the bg img in the viewport*/;
     background-position: top; /*Top of the img always stays with top of the container*/
     clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%)
-    /*clip-path clips the div in a particular polygon. We have to mention coordinates of 4 sides- top, right, bottom, left*/
+    /*clip-path clips the div in a particular polygon. 
+    We have to mention coordinates of 4 sides- top, right, bottom, left (clockwise).
+    We can have as many coordinate points as we want and as reqd.*/
 }
 .logo-box{
     position: absolute;
@@ -49,18 +51,24 @@ body{
 .heading-primary{
     color: #fff;
     text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 .heading-primary-main{
     display: block;
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    /*animation: animation-name animation-duration animation-timing-function*/
+    animation: moveInLeft 1s ease-out;
 }
 .heading-primary-sub{
     display: block;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    /*animation: animation-name animation-duration animation-timing-function*/
+    animation: moveInRight 1s ease-out;
 
 }
 .text-box{
@@ -70,4 +78,58 @@ body{
     /*This will set the starting coordinate of element at (40%, 50%) of the screen. With reference from the parent element*/
     transform: translate(-50%, -50%);
     /*By doing this, we shift the element by (-1/2, -1/2) times from the same coordinate. With reference from the same element*/
+    text-align: center;
+}
+
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80%{
+        transform: translateX(10px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+    
+}
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80%{
+        transform: translateX(-10px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+    
+}
+.btn,
+.btn :link,
+.btn :visited
+{
+    /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
+    /*Other psuedo-classes would be - hover, active, checkbox is clicked etc...*/
+    /*:link is for the element(containing href) which is not yet visited.*/
+    /*:visited is for the element(containing href) which is already visited atleast once.*/
+
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+}
+
+
+.btn-white{
+    background-color: #fff;
+    color:#777
 }
