@@ -81,6 +81,67 @@ body{
     text-align: center;
 }
 
+.btn,
+.btn :link,
+.btn :visited
+{
+    /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
+    /*Other psuedo-classes would be - hover, active, checkbox is clicked etc...*/
+    /*:link is for the element(containing href) which is not yet visited.*/
+    /*:visited is for the element(containing href) which is already visited atleast once.*/
+    position: relative;
+    border-radius: 200px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    transition: all 0.2s; /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
+    /*transition property is always declared in the initial state of an element.  */
+    animation: moveInTop .5s ease-out .75s;
+    animation-fill-mode: backwards; /*This sets the initial (0%) values of animation in the element(.btn)*/
+}
+.btn:hover{
+    /*When mouse hovers over .btn*/
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px #0000002c;  /*X Y blur color*/
+}
+.btn:active{
+    /*When .btn is clicked*/
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px #0000002c;   /*X Y blur color*/
+}
+
+.btn-white{
+    background-color: #fff;
+    color:#777
+}
+
+.btn::after{
+    /*This is like a child of the .btn. We have to make it exactly like the .btn. And then, we put it behind .btn. */
+    content: "";    /*If we want to have this pseudo element on our webpage, we have to specify content!!! 
+    Even if it is empty. 
+    This is always done!!*/
+    display: inline-block; /*Just like content, dislplay property is also necessary.*/
+    height: 100%;
+    width: 100%;
+    border-radius: 200px;
+    position: absolute; /*For the animation to come from the back of the button*/
+    top: 0;
+    left: 0;
+    z-index: -1;    /*Placing .btn::after in back*/
+    
+    transition: all .4s;
+}
+.btn-white::after{
+    background-color: white;
+}
+.btn:hover::after{
+    /*an ::after pseudo element only when th .btn is in hover state*/
+    transform: scaleX(1.5) scaleY(1.6);
+    opacity: 0;
+
+    
+}
 @keyframes moveInLeft {
     0%{
         opacity: 0;
@@ -113,42 +174,15 @@ body{
     }
     
 }
-.btn,
-.btn :link,
-.btn :visited
-{
-    /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
-    /*Other psuedo-classes would be - hover, active, checkbox is clicked etc...*/
-    /*:link is for the element(containing href) which is not yet visited.*/
-    /*:visited is for the element(containing href) which is already visited atleast once.*/
-    border-radius: 200px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    transition: all 0.2s; /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
-    /*transition property is always declared in the initial state of an element.  */
-}
-.btn:hover{
-    /*When mouse hovers over .btn*/
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px #0000002c;  /*X Y blur color*/
-}
-.btn:active{
-    /*When .btn is clicked*/
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px #0000002c;   /*X Y blur color*/
-}
+@keyframes moveInTop{
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
-.btn-white{
-    background-color: #fff;
-    color:#777
-}
-
-.btn::after{
-    /*This is like a child of the .btn. We have to make it exactly like the .btn. And then, we put it behind .btn. */
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+    
 }
