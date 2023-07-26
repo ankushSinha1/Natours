@@ -121,15 +121,34 @@ body{
     /*Other psuedo-classes would be - hover, active, checkbox is clicked etc...*/
     /*:link is for the element(containing href) which is not yet visited.*/
     /*:visited is for the element(containing href) which is already visited atleast once.*/
-
+    border-radius: 200px;
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
     display: inline-block;
+    transition: all 0.2s; /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
+    /*transition property is always declared in the initial state of an element.  */
 }
-
+.btn:hover{
+    /*When mouse hovers over .btn*/
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px #0000002c;  /*X Y blur color*/
+}
+.btn:active{
+    /*When .btn is clicked*/
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px #0000002c;   /*X Y blur color*/
+}
 
 .btn-white{
     background-color: #fff;
     color:#777
+}
+
+.btn::after{
+    /*This is like a child of the .btn. We have to make it exactly like the .btn. And then, we put it behind .btn. */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
 }
