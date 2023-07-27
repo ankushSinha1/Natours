@@ -119,7 +119,7 @@ body{
 .btn::after{
     /*This is like a child of the .btn. We have to make it exactly like the .btn. And then, we put it behind .btn. */
     content: "";    /*If we want to have this pseudo element on our webpage, we have to specify content!!! 
-    Even if it is empty. 
+    Even if it is empty.
     This is always done!!*/
     display: inline-block; /*Just like content, dislplay property is also necessary.*/
     height: 100%;
@@ -137,7 +137,7 @@ body{
 }
 .btn:hover::after{
     /*an ::after pseudo element only when th .btn is in hover state*/
-    transform: scaleX(1.5) scaleY(1.6);
+    transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 
     
