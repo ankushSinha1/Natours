@@ -7,10 +7,13 @@ dark green :#28b485 */
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*padding and border is included in div's height and width*/
+    box-sizing: inherit; /*Forced inheritance. 
+    All child are now gonna have inherited value of border-box in the property box-sizing (declared in body selector)*/
 }
 html{
-    font-size: 10px;
+    font-size: 62.5%; /*62.5% of 16px is 10px, so we have our desired root font-size.*/
+    /*It's not good to have font-size in px coz users with low eye sight change the browser's font-size(16px) to see properly,
+    but due that, our declared value will have no effect and hence the rest of the code can create problems and bad UX.*/
 }
 body{
     font-family: 'Lato', sans-serif;
@@ -19,6 +22,7 @@ body{
     line-height: 1.7; /*line height is 1.7x that of orignal element*/
     color: #777;
     padding: 3rem;
+    box-sizing: border-box; /*padding and border is included in div's height and width*/
 }
 .header{
     position: relative;
@@ -100,6 +104,7 @@ body{
     /*transition property is always declared in the initial state of an element.  */
     animation: moveInTop .5s ease-out .75s;
     animation-fill-mode: backwards; /*This sets the initial (0%) values of animation in the element(.btn)*/
+    font-size: 1.6rem;
 }
 .btn:hover{
     /*When mouse hovers over .btn*/
