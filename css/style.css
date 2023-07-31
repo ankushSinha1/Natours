@@ -90,7 +90,7 @@ body {
   text-decoration: none;
   padding: 1.5rem 4rem;
   display: inline-block;
-  transition: all 0.2s;
+  transition: all 0.1s;
   /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
   /*transition property is always declared in the initial state of an element.  */
   font-size: 1.6rem; }

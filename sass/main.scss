@@ -1,6 +1,8 @@
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
 *,
 *::after,
 *::before{
@@ -19,7 +21,7 @@ body{
     font-weight: 400;
     /* font-size: 16px; */
     line-height: 1.7; /*line height is 1.7x that of orignal element*/
-    color: #777;
+    color: $color-grey-dark;;
     padding: 3rem;
     box-sizing: border-box; /*padding and border is included in div's height and width*/
 }
@@ -53,7 +55,7 @@ body{
 }
 
 .heading-primary{
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
     backface-visibility: hidden;
     margin-bottom: 6rem;
@@ -99,7 +101,7 @@ body{
     text-decoration: none;
     padding: 1.5rem 4rem;
     display: inline-block;
-    transition: all 0.2s; /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
+    transition: all 0.1s; /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
     /*transition property is always declared in the initial state of an element.  */
     font-size: 1.6rem;
 }
@@ -115,8 +117,8 @@ body{
 }
 
 .btn--white{
-    background-color: #fff;
-    color:#777
+    background-color: $color-white;
+    color:$color-grey-dark;
 }
 .btn--animated{
     animation: moveInTop .5s ease-out .75s;
