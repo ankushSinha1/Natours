@@ -1,196 +1,171 @@
-
-/* COLORS: 
-light green :#7ed56f
-medium green :#55c57a
-dark green :#28b485 */
-
 *,
 *::after,
-*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit; /*Forced inheritance. 
-    All child are now gonna have inherited value of border-box in the property box-sizing (declared in body selector)*/
-}
-html{
-    font-size: 62.5%; /*62.5% of 16px is 10px, so we have our desired root font-size.*/
-    /*It's not good to have font-size in px coz users with low eye sight change the browser's font-size(16px) to see properly,
-    but due that, our declared value will have no effect and hence the rest of the code can create problems and bad UX.*/
-}
-body{
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7; /*line height is 1.7x that of orignal element*/
-    color: #777;
-    padding: 3rem;
-    box-sizing: border-box; /*padding and border is included in div's height and width*/
-}
-.header{
-    position: relative;
-    height: 95vh; /*95% of viewport height*/
-    /*viewport: user's visible area of a webpage*/
-    background-image: 
-        linear-gradient(
-            to right, /*Direction*/
-            #7ed56fbb, /*First color, LAst 2 digits show opacity*/
-            #28b485bb /*second color*/
-        ) ,  url(../img/hero.jpg);
-    /*Linear gradient adds a color gradient in the div*/
-    
-    background-size: cover; /*Always fits the bg img in the viewport*/;
-    background-position: top; /*Top of the img always stays with top of the container*/
-    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%)
-    /*clip-path clips the div in a particular polygon. 
-    We have to mention coordinates of 4 sides- top, right, bottom, left (clockwise).
-    We can have as many coordinate points as we want and as reqd.*/
-}
-.logo-box{
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-    /*4rem from parent element's border whose position is set to relative*/
-}
-.logo{
-    height: 3.5rem;
-}
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*Forced inheritance. 
+    All child are now gonna have inherited value of border-box in the property box-sizing (declared in body selector)*/ }
 
-.heading-primary{
-    color: #fff;
-    text-transform: uppercase;
-    backface-visibility: hidden;
-    margin-bottom: 6rem;
-}
-.heading-primary-main{
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /*animation: animation-name animation-duration animation-timing-function*/
-    animation: moveInLeft 1s ease-out;
-}
-.heading-primary-sub{
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
-    /*animation: animation-name animation-duration animation-timing-function*/
-    animation: moveInRight 1s ease-out;
+html {
+  font-size: 62.5%;
+  /*62.5% of 16px is 10px, so we have our desired root font-size.*/
+  /*It's not good to have font-size in px coz users with low eye sight change the browser's font-size(16px) to see properly,
+    but due that, our declared value will have no effect and hence the rest of the code can create problems and bad UX.*/ }
 
-}
-.text-box{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /*This will set the starting coordinate of element at (40%, 50%) of the screen. With reference from the parent element*/
-    transform: translate(-50%, -50%);
-    /*By doing this, we shift the element by (-1/2, -1/2) times from the same coordinate. With reference from the same element*/
-    text-align: center;
-}
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  /*line height is 1.7x that of orignal element*/
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
+  /*padding and border is included in div's height and width*/ }
+
+.header {
+  position: relative;
+  height: 95vh;
+  /*95% of viewport height*/
+  /*viewport: user's visible area of a webpage*/
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /*Linear gradient adds a color gradient in the div*/
+  background-size: cover;
+  /*Always fits the bg img in the viewport*/
+  background-position: top;
+  /*Top of the img always stays with top of the container*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  /*4rem from parent element's border whose position is set to relative*/ }
+
+.header__logo {
+  height: 3.5rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  /*animation: animation-name animation-duration animation-timing-function*/
+  animation: moveInLeft 1s ease-out; }
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.74rem;
+  /*animation: animation-name animation-duration animation-timing-function*/
+  animation: moveInRight 1s ease-out; }
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /*This will set the starting coordinate of element at (40%, 50%) of the screen. With reference from the parent element*/
+  transform: translate(-50%, -50%);
+  /*By doing this, we shift the element by (-1/2, -1/2) times from the same coordinate. With reference from the same element*/
+  text-align: center; }
 
 .btn,
 .btn :link,
-.btn :visited
-{
-    /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
-    /*Other psuedo-classes would be - hover, active, checkbox is clicked etc...*/
-    /*:link is for the element(containing href) which is not yet visited.*/
-    /*:visited is for the element(containing href) which is already visited atleast once.*/
-    position: relative;
-    border-radius: 200px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    transition: all 0.2s; /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
-    /*transition property is always declared in the initial state of an element.  */
-    animation: moveInTop .5s ease-out .75s;
-    animation-fill-mode: backwards; /*This sets the initial (0%) values of animation in the element(.btn)*/
-    font-size: 1.6rem;
-}
-.btn:hover{
-    /*When mouse hovers over .btn*/
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem #0000002c;  /*X Y blur color*/
-}
-.btn:active{
-    /*When .btn is clicked*/
-    transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem #0000002c;   /*X Y blur color*/
-}
+.btn :visited {
+  /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
+  /*Other psuedo-classes would be - hover, active, checkbox is clicked etc...*/
+  /*:link is for the element(containing href) which is not yet visited.*/
+  /*:visited is for the element(containing href) which is already visited atleast once.*/
+  position: relative;
+  border-radius: 200px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  transition: all 0.2s;
+  /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
+  /*transition property is always declared in the initial state of an element.  */
+  font-size: 1.6rem; }
 
-.btn-white{
-    background-color: #fff;
-    color:#777
-}
+.btn:hover {
+  /*When mouse hovers over .btn*/
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem #0000002c;
+  /*X Y blur color*/ }
 
-.btn::after{
-    /*This is like a child of the .btn. We have to make it exactly like the .btn. And then, we put it behind .btn. */
-    content: "";    /*If we want to have this pseudo element on our webpage, we have to specify content!!! 
+.btn:active {
+  /*When .btn is clicked*/
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem #0000002c;
+  /*X Y blur color*/ }
+
+.btn--white {
+  background-color: #fff;
+  color: #777; }
+
+.btn--animated {
+  animation: moveInTop .5s ease-out .75s;
+  animation-fill-mode: backwards;
+  /*This sets the initial (0%) values of animation in the element(.btn)*/ }
+
+.btn::after {
+  /*This is like a child of the .btn. We have to make it exactly like the .btn. And then, we put it behind .btn. */
+  content: "";
+  /*If we want to have this pseudo element on our webpage, we have to specify content!!! 
     Even if it is empty.
     This is always done!!*/
-    display: inline-block; /*Just like content, dislplay property is also necessary.*/
-    height: 100%;
-    width: 100%;
-    border-radius: 20rem;
-    position: absolute; /*For the animation to come from the back of the button*/
-    top: 0;
-    left: 0;
-    z-index: -1;    /*Placing .btn::after in back*/
-    
-    transition: all .4s;
-}
-.btn-white::after{
-    background-color: white;
-}
-.btn:hover::after{
-    /*an ::after pseudo element only when th .btn is in hover state*/
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+  display: inline-block;
+  /*Just like content, dislplay property is also necessary.*/
+  height: 100%;
+  width: 100%;
+  border-radius: 20rem;
+  position: absolute;
+  /*For the animation to come from the back of the button*/
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /*Placing .btn::after in back*/
+  transition: all .4s;
+  /* background-color: white; */
+  background-color: white; }
 
-    
-}
+.btn:hover::after {
+  /*an ::after pseudo element only when th .btn is in hover state*/
+  transform: scaleX(2) scaleY(1.8);
+  opacity: 0; }
+
 @keyframes moveInLeft {
-    0%{
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
-    80%{
-        transform: translateX(1rem);
-    }
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-    
-}
-@keyframes moveInRight{
-    0%{
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-
-    80%{
-        transform: translateX(-1rem);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-    
-}
-@keyframes moveInTop{
-    0%{
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-    
-}
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
