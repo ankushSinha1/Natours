@@ -1,17 +1,45 @@
-*,
-*::after,
-*::before {
+html {
+  font-size: 62.5%;
+  /*62.5% of 16px is 10px, so we have our desired root font-size.*/
   margin: 0;
   padding: 0;
   box-sizing: inherit;
   /*Forced inheritance. 
-    All child are now gonna have inherited value of border-box in the property box-sizing (declared in body selector)*/ }
-
-html {
-  font-size: 62.5%;
-  /*62.5% of 16px is 10px, so we have our desired root font-size.*/
+    All child are now gonna have inherited value of border-box in the property box-sizing (declared in body selector)*/
   /*It's not good to have font-size in px coz users with low eye sight change the browser's font-size(16px) to see properly,
     but due that, our declared value will have no effect and hence the rest of the code can create problems and bad UX.*/ }
+
+body {
+  box-sizing: border-box;
+  /*padding and border is included in div's height and width*/ }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -20,40 +48,7 @@ body {
   line-height: 1.7;
   /*line height is 1.7x that of orignal element*/
   color: #777;
-  padding: 3rem;
-  box-sizing: border-box;
-  /*padding and border is included in div's height and width*/ }
-
-.header {
-  position: relative;
-  height: 95vh;
-  /*95% of viewport height*/
-  /*viewport: user's visible area of a webpage*/
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /*Linear gradient adds a color gradient in the div*/
-  background-size: cover;
-  /*Always fits the bg img in the viewport*/
-  background-position: top;
-  /*Top of the img always stays with top of the container*/
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /*clip-path clips the div in a particular polygon. 
-    We have to mention coordinates of 4 sides- top, right, bottom, left (clockwise).
-    We can have as many coordinate points as we want and as reqd.*/ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-    /*4rem from parent element's border whose position is set to relative*/ }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /*This will set the starting coordinate of element at (40%, 50%) of the screen. With reference from the parent element*/
-    transform: translate(-50%, -50%);
-    /*By doing this, we shift the element by (-1/2, -1/2) times from the same coordinate. With reference from the same element*/
-    text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   color: #fff;
@@ -137,30 +132,33 @@ body {
   /* background-color: white; */
   background-color: white; }
 
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  80% {
-    transform: translateX(1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInTop {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.header {
+  position: relative;
+  height: 95vh;
+  /*95% of viewport height*/
+  /*viewport: user's visible area of a webpage*/
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /*Linear gradient adds a color gradient in the div*/
+  background-size: cover;
+  /*Always fits the bg img in the viewport*/
+  background-position: top;
+  /*Top of the img always stays with top of the container*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*clip-path clips the div in a particular polygon. 
+    We have to mention coordinates of 4 sides- top, right, bottom, left (clockwise).
+    We can have as many coordinate points as we want and as reqd.*/ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    /*4rem from parent element's border whose position is set to relative*/ }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /*This will set the starting coordinate of element at (40%, 50%) of the screen. With reference from the parent element*/
+    transform: translate(-50%, -50%);
+    /*By doing this, we shift the element by (-1/2, -1/2) times from the same coordinate. With reference from the same element*/
+    text-align: center; }

@@ -1,0 +1,13 @@
+@import "../abstracts/variables";
+html{
+    font-size: 62.5%; /*62.5% of 16px is 10px, so we have our desired root font-size.*/
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /*Forced inheritance. 
+    All child are now gonna have inherited value of border-box in the property box-sizing (declared in body selector)*/
+    /*It's not good to have font-size in px coz users with low eye sight change the browser's font-size(16px) to see properly,
+    but due that, our declared value will have no effect and hence the rest of the code can create problems and bad UX.*/
+}
+body{
+    box-sizing: border-box; /*padding and border is included in div's height and width*/
+}

@@ -1,0 +1,37 @@
+.header{
+    position: relative;
+    height: 95vh; /*95% of viewport height*/
+    /*viewport: user's visible area of a webpage*/
+    background-image: 
+        linear-gradient(
+            to right, /*Direction*/
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)
+        ) ,  url(../img/hero.jpg);
+    /*Linear gradient adds a color gradient in the div*/
+    
+    background-size: cover; /*Always fits the bg img in the viewport*/;
+    background-position: top; /*Top of the img always stays with top of the container*/
+    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);
+    /*clip-path clips the div in a particular polygon. 
+    We have to mention coordinates of 4 sides- top, right, bottom, left (clockwise).
+    We can have as many coordinate points as we want and as reqd.*/
+    &__logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+        /*4rem from parent element's border whose position is set to relative*/
+    }
+    &__logo{
+        height: 3.5rem;
+    }
+    &__text-box{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /*This will set the starting coordinate of element at (40%, 50%) of the screen. With reference from the parent element*/
+        transform: translate(-50%, -50%);
+        /*By doing this, we shift the element by (-1/2, -1/2) times from the same coordinate. With reference from the same element*/
+        text-align: center;
+    }
+}
