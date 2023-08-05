@@ -13,7 +13,6 @@
     [class^="col-"]{
         //[] is called attribute selector. Inside it is given what to select, ^= : starting with, $= : ending with and *= : containing.
         // We can select whatever we want, href, alt, src ...
-        background-color: aquamarine;
         float: left;
         &:not(:last-child){
             margin-right: $gutter-horizontal;

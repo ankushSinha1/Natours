@@ -70,6 +70,26 @@ body {
     /*animation: animation-name animation-duration animation-timing-function*/
     animation: moveInRight 1s ease-out; }
 
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: none;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(10deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.3); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
 .btn:link, .btn:visited {
   /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
   /*Other psuedo-classes would be - hover, active, checkbox is clicked etc...*/
@@ -132,6 +152,11 @@ body {
   /* background-color: white; */
   background-color: white; }
 
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
 .header {
   position: relative;
   height: 95vh;
@@ -175,7 +200,6 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    background-color: aquamarine;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
