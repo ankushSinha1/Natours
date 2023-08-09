@@ -1,0 +1,62 @@
+.card{
+    //Perspective property in css is used to define how far the object is from the user.
+    //The more the value, the better it looks(upto a certain point)
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative; //Because we want the front and back sides of each card to coincide
+    height: 50rem;
+    &__side{
+        height: 50rem;      //Specifying the same height as the parent became necessary here coz we gave 
+                            //position: absolute; to child card__side, which made the height to collapse to 0px
+                            //(similar to making all childs as float. Here we do not have a fix to this like 
+                            //clear-fix method, hence height is needed to be specified.)
+        transition: all .8s ease;
+        position: absolute;         //To make both sides of the card coincide.
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;    //It hides the back part of any element (not the &--back we defined but the default one 
+                                        //(where we saw the text reversed and starting from the right side))
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        //Designing both sides of the card seperately
+        &--front{
+            background-color: $color-white;
+        }
+        &--back{
+            //Initially the back side of the card should be rotated to -180deg so that when we hover, the backside comes from the correct direction.
+            //Or else, we would just see a half rotation
+            transform: rotateY(-180deg);
+            &-1{
+                //Linear-gradient is used with background-image and not background-color
+                background-image: linear-gradient(
+                    to right bottom,
+                    $color-secondary-light,
+                    $color-secondary-dark
+                );
+            }
+            &-2{
+                background-image: linear-gradient(
+                    to right bottom,
+                    $color-primary-light,
+                    $color-primary-dark
+                );
+            }
+            &-3{
+                background-image: linear-gradient(
+                    to right bottom,
+                    $color-tertiary-light,
+                    $color-tertiary-dark
+                );
+                
+            }
+        }
+    }
+    &:hover &__side--front{
+        transform: rotateY(180deg);
+    }
+    &:hover &__side--back{
+        //To get the rotated back side of the card to its original position so that we are able to see it properly
+        transform: rotateY(0);
+    }
+}
