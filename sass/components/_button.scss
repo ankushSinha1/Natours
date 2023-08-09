@@ -31,16 +31,7 @@
         transform: translateY(-1px);
         box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);   /*X Y blur color*/
     }
-
-    &--white{
-        background-color: $color-white;
-        color:$color-grey-dark;
-    }
-    &--animated{
-        animation: moveInTop .5s ease-out .75s;
-        animation-fill-mode: backwards; /*This sets the initial (0%) values of animation in the element(&)*/
-    }
-
+    
     &::after{
         /*This is like a child of the &. We have to make it exactly like the &. And then, we put it behind &. */
         content: "";    /*If we want to have this pseudo element on our webpage, we have to specify content!!! 
@@ -55,8 +46,26 @@
         left: 0;
         z-index: -1;    /*Placing &::after in back*/
         transition: all .4s;
-        /* background-color: white; */
-        background-color: white;
+        background-color: white; 
+    }
+    &--white{
+        background-color: $color-white;
+        color:$color-grey-dark;
+        ::after{
+            background-color: $color-white;
+        }
+    }
+    &--green{
+        background-color: $color-primary;
+        color: $color-white;
+        &::after{
+            background-color: $color-primary;
+        }
+    }
+    
+    &--animated{
+        animation: moveInTop .5s ease-out .75s;
+        animation-fill-mode: backwards; /*This sets the initial (0%) values of animation in the element(&)*/
     }
 }
 .btn-text{
