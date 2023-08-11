@@ -33,7 +33,27 @@
     background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
 }
 .book{
-    background-image: url('/img/nat-10.jpg');
+    //This is another method to create polygons without using clip-path property
+    //This is also called solid gradient method
+    //we specify different colors at different points of the element
+
+    background-image: 
+    linear-gradient(
+        105deg,         //similar to direction
+        rgba($color-white, .9) 0%, 
+        rgba($color-white, .9) 50%,     //Same //color composition till //50%
+        transparent 50%,        //No //color after 50%
+
+        ), 
+        url('/img/nat-10.jpg')
+    ;
     background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
     height: 50rem;
+    &__form{
+        width: 50%;
+        padding: 3rem;
+    }
 }

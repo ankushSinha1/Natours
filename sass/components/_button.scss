@@ -1,4 +1,5 @@
 .btn{
+    &,
     &:link,
     &:visited{
         /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
@@ -14,6 +15,9 @@
         transition: all 0.1s; /*For basic animations. It selects all the animation, movement etc. and give it a time-duration of .2s*/
         /*transition property is always declared in the initial state of an element.  */
         font-size: $default-font-size;
+        
+        border: none;
+        cursor: pointer;
     }
     &:hover{
         /*When mouse hovers over &*/
@@ -26,7 +30,7 @@
         }
     
     }
-    &:active{
+    &:active, &:focus{
         /*When & is clicked*/
         transform: translateY(-1px);
         box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);   /*X Y blur color*/
