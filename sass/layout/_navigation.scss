@@ -1,6 +1,21 @@
 .navigation{
-    &__checkbox{}
-    &__button{}
+    &__checkbox{
+        display: none;
+
+    }
+    &__button{
+        background-color: $color-white;
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 3;
+        box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        text-align: center;
+        cursor: pointer;
+    }
     &__background{
         height: 6rem;
         width: 6rem;
@@ -9,9 +24,115 @@
         top: 6.5rem;
         right: 6.5rem;
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index:1;
+        transition: all .6s cubic-bezier(0.86, 0, 0.07, 1);
     }
-    &__nav{}
-    &__list{}
-    &__item{}
-    &__link{}
+    &__nav{
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        opacity: 0;
+        transition: all .6s;
+    }
+    &__list{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        list-style: none;
+        width: 100%;
+    }
+    &__item{
+        margin: 1rem;
+    }
+    &__link{
+        &:link, &:visited{
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 300;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(
+                120deg,
+                transparent 0%,
+                transparent 50%,
+                $color-white 50%
+            );
+            padding: 1rem 2rem;
+            background-size: 250%;
+            transition: all .4s;
+            span{
+                margin-right: 1rem;
+                display: inline-block;
+            }
+        }
+        &:hover, &:active{
+            background-position: 100%;
+            color: $color-primary;
+            transform: translateX(.4rem);
+        }
+
+    }
+
+
+    //To make the onclick functionality, we use the checkbox hack
+    //This will check if the checkbox is checked and then change the
+    //background to scale it 100 times
+    &__checkbox:checked ~ &__background{
+        transform: scale(75);
+    }
+    //This will show the navbar contents when the checkbox is clicked
+    &__checkbox:checked ~ &__nav{
+        opacity: 1;
+        width: 100%;
+    }
+
+    //This is for the animation of the nav button
+    &__icon{
+        position: relative;
+        margin-top: 3.5rem;
+        &,
+        &::before,
+        &::after{
+            width: 3rem;
+            height: 1.5px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .4s;
+        }
+        &::before{
+            top: -.8rem;
+        }
+        &::after{
+            top: .8rem;
+        }
+    }
+    &__button:hover &__icon::before{
+        top: -1rem;
+    }
+    &__button:hover &__icon::after{
+        top: 1rem;
+    }
+    &__checkbox:checked + &__button &__icon{
+        background-color: transparent;
+    }
+    &__checkbox:checked + &__button &__icon::before{
+        top: 0;
+        transform: rotate(135deg);
+    }
+    &__checkbox:checked + &__button &__icon::after{
+        top: 0;
+        transform: rotate(-135deg);
+    }
 }
