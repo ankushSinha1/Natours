@@ -478,7 +478,9 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
   border-radius: 3px;
-  display: none; }
+  opacity: 0;
+  visibility: hidden;
+  transition: all .4s; }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -489,7 +491,10 @@ body {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     display: table;
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all .4s .2s; }
   .popup__left {
     width: 33.333333%;
     display: table-cell; }
@@ -509,6 +514,24 @@ body {
     column-gap: 4rem;
     column-rule: 1px solid #eee;
     hyphens: auto; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); }
+  .popup__closed:link, .popup__closed:visited {
+    color: #777;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .2s;
+    line-height: 1; }
+  .popup__closed:hover {
+    color: #55c57a; }
 
 .section-about {
   background-color: #f7f7f7;
