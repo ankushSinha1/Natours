@@ -140,7 +140,7 @@ body {
     transform: scaleX(2) scaleY(1.8);
     opacity: 0; }
 
-.btn:active, .btn:focus {
+.btn:active {
   /*When & is clicked*/
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -450,7 +450,7 @@ body {
   border-radius: 60%;
   display: inline-block;
   position: absolute;
-  top: -1rem;
+  top: -.56rem;
   left: 0; }
   .form__radio-button::after {
     content: "";
