@@ -1,5 +1,6 @@
 .btn{
-    &,
+    &,      //To mention this is important coz then it will also include any kind of element having class = btn 
+    //(previously only <a> were included since &:link)
     &:link,
     &:visited{
         /*A psuedo-class is a special state of a selector. Here link is psuedo-class of the btn selector*/
