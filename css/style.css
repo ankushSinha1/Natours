@@ -442,6 +442,14 @@ body {
   padding-left: 9rem;
   font-size: 1.6rem;
   transform: skewX(-12deg); }
+  @media (max-width: 56.25em) {
+    .story {
+      width: 100%;
+      padding: 4rem;
+      padding-left: 7rem; } }
+  @media (max-width: 37.5em) {
+    .story {
+      transform: skew(0); } }
   .story > * {
     transform: skewX(12deg); }
   .story__shape {
@@ -452,6 +460,9 @@ body {
     shape-outside: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story__shape {
+        transform: translateX(-3rem) skew(0); } }
   .story__image {
     height: 100%;
     transform: translateX(-4rem) scale(1.2);
@@ -468,6 +479,11 @@ body {
     opacity: 0;
     transition: all .5s;
     backface-visibility: hidden; }
+  .story__text {
+    transform: skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story__text {
+        transform: skew(0); } }
   .story:hover .story__caption {
     opacity: 1;
     transform: translate(-50%, -50%); }
