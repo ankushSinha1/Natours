@@ -1,6 +1,6 @@
-html {
-  font-size: 62.5%;
-  /*62.5% of 16px is 10px, so we have our desired root font-size.*/
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
@@ -8,6 +8,19 @@ html {
     All child are now gonna have inherited value of border-box in the property box-sizing (declared in body selector)*/
   /*It's not good to have font-size in px coz users with low eye sight change the browser's font-size(16px) to see properly,
     but due that, our declared value will have no effect and hence the rest of the code can create problems and bad UX.*/ }
+
+html {
+  font-size: 62.5%;
+  /*62.5% of 16px is 10px, so we have our desired root font-size.*/ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box;
@@ -44,7 +57,6 @@ body {
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   line-height: 1.7;
   /*line height is 1.7x that of orignal element*/
   color: #777;
@@ -444,19 +456,19 @@ body {
   padding-left: 5rem; }
 
 .form__radio-button {
-  height: 2rem;
-  width: 2rem;
+  height: 2.8rem;
+  width: 2.8rem;
   border: 5px solid #55c57a;
   border-radius: 60%;
   display: inline-block;
   position: absolute;
-  top: -.56rem;
+  top: -.49rem;
   left: 0; }
   .form__radio-button::after {
     content: "";
     display: inline-block;
-    height: 1.3rem;
-    width: 1.3rem;
+    height: 1rem;
+    width: 1rem;
     border-radius: 60%;
     position: absolute;
     top: 50%;
