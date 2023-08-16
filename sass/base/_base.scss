@@ -30,4 +30,8 @@ html{
 }
 body{
     box-sizing: border-box; /*padding and border is included in div's height and width*/
+    padding: 3rem;
+    @include respond(tab-port){ //width < 900px ?
+        padding: 0;
+    }
 }
