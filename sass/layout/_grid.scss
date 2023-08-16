@@ -2,7 +2,7 @@
     max-width: $grid-width;
     // background-color: #eee;
     margin: 0 auto;
-    margin-bottom: $gutter-vertical;
+    // margin-bottom: $gutter-vertical;
     &:not(:last-child){
         //Selects all childs except the last one
         margin-bottom: $gutter-vertical;
