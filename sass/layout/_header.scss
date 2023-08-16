@@ -13,6 +13,10 @@
     background-size: cover; /*Always fits the bg img in the viewport*/;
     background-position: top; /*Top of the img always stays with top of the container*/
     clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);
+    @include respond(phone  ){
+        clip-path: polygon( 0 0, 100% 0, 100% 85vh, 0 100%);
+
+    }
     /*clip-path clips the div in a particular polygon. 
     We have to mention coordinates of 4 sides- top, right, bottom, left (clockwise).
     We can have as many coordinate points as we want and as reqd.*/
