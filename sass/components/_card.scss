@@ -165,7 +165,11 @@
         font-weight: 100;
 
     }
-    @include respond(tab-port){
+    //Previously we added @include respond, with which it's impossible to add multiple conditions. 
+    //So we have to write the media query explicitly here in order to have multiple conditions
+    @media only screen and (max-width: 56.25em),
+    only sreen and (hover:none)         //Checks for touch devices
+    {
         height: auto;
         border-radius: 3px;
         background-color: $color-white;
