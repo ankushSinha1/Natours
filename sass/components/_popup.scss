@@ -14,14 +14,21 @@
     &__content{
         @include absCenter;
         width: 80%;
-        background-color: $color-white;
-        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        background-color: $color-black;
+        box-shadow: 0 2rem 4rem rgba($color-black, .1);
         border-radius: 3px;
         display: table;
         overflow: hidden;
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
         transition: all .4s .2s;
+        
+        @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)){
+            //Checks if a property is supported in the browser or not. If true, the following code will be executed
+            -webkit-backdrop-filter: blur(10px );
+            backdrop-filter: 10px;
+            background-color: $color-white;
+        }
     }
     &__left{
         width: 33.333333%;

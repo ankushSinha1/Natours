@@ -1,29 +1,36 @@
 .header{
     position: relative;
-    height: 95vh; /*95% of viewport height*/
+    height: 85vh; /*95% of viewport height*/
     /*viewport: user's visible area of a webpage*/
     background-image: 
-        linear-gradient(
-            to right, /*Direction*/
-            rgba($color-primary-light, 0.8),
-            rgba($color-primary-dark, 0.8)
+    linear-gradient(
+        to right, /*Direction*/
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
         ) ,  url(../img/hero-small.jpg);
-    /*Linear gradient adds a color gradient in the div*/
-    
-    background-size: cover; /*Always fits the bg img in the viewport*/;
-    background-position: top; /*Top of the img always stays with top of the container*/
-    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);    
+        /*Linear gradient adds a color gradient in the div*/
+        
+        background-size: cover; /*Always fits the bg img in the viewport*/;
+        background-position: top; /*Top of the img always stays with top of the container*/
+        @supports (clip-path: polygon(0 0)) or(-webkit-clip-path: polygon(0 0)){
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+            clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);
+            height: 95vh; /*95% of viewport height*/
+            
+    }
+
     //media query for high resolution screen and phone screen width [and is && and , is ||]
     @media 
         (min-resolution: 192dpi) and (min-width: 37.5em) , 
+        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) , 
         (min-width: 125em)
         {
-        background-image: 
-        linear-gradient(
-            to right, /*Direction*/
-            rgba($color-primary-light, 0.8),
-            rgba($color-primary-dark, 0.8)
-        ) ,  url(../img/hero.jpg);
+            background-image: 
+            linear-gradient(
+                to right, /*Direction*/
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark, 0.8)
+            ) ,  url(../img/hero.jpg);
     }
     @media (min-width: 2000px){
         background-image: 
