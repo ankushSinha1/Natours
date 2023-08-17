@@ -88,9 +88,38 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="img/nat-1-large.jpg" alt="Pic 1" class="composition__photo composition__photo--p1">
+                            <!-- 
+                                we can mention screen width to be checked for different images to load
+                                The unit w(width) is not understood by the browser. So he need to mention sizes
+                                explicitly. 300w would be for tab-port, hence 20%(20vw) of 900px is 300px.
+                                Similarly, 30% for 600px. We can also mention a default size if none of the
+                                conditions are matched (the last attribute in sizes).
+                                "Resolution switching"
+                            -->
+                            <img 
+                                srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" 
+                                alt="photo 1"
+                                sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                                class="composition__photo composition__photo--p1"
+                                src="img/nat-1-large.jpg" 
+                            >
+                            <img 
+                                srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" 
+                                alt="photo 1"
+                                sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                                class="composition__photo composition__photo--p2"
+                                src="img/nat-2-large.jpg" 
+                            >
+                            <img 
+                                srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" 
+                                alt="photo 1"
+                                sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                                class="composition__photo composition__photo--p3"
+                                src="img/nat-3-large.jpg" 
+                            >
+                            <!-- <img src="img/nat-1-large.jpg" alt="Pic 1" class="composition__photo composition__photo--p1">
                             <img src="img/nat-2-large.jpg" alt="Pic 2" class="composition__photo composition__photo--p2">
-                            <img src="img/nat-3-large.jpg" alt="Pic 3" class="composition__photo composition__photo--p3">
+                            <img src="img/nat-3-large.jpg" alt="Pic 3" class="composition__photo composition__photo--p3"> -->
                         </div>
                     </div>
                 </div>
@@ -344,7 +373,24 @@
         </main>
         <footer class="footer">
             <div class="footer__logo-box">
-                <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+                <picture class="Footer__logo">
+                    <!-- WE have to use atleast one source tag and img tag 
+                        media attribute will allow us to write media query for this source 
+                        we can have as many sources as we want depending on the breakpoints 
+                        "Art switching" 
+                    -->
+                    <source 
+                        srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" 
+                        media="(max-width: 37.5rem)"
+                    >
+                    <!-- srcset will decide which image to choose according to screen resolution. -->
+                    <img 
+                        srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" 
+                        alt="Full logo" 
+                        class="footer__logo"
+                        src="img/logo-green-2x.png"
+                    >
+                </picture>
 
             </div>
             <div class="row">
