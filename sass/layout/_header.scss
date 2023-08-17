@@ -7,12 +7,32 @@
             to right, /*Direction*/
             rgba($color-primary-light, 0.8),
             rgba($color-primary-dark, 0.8)
-        ) ,  url(../img/hero.jpg);
+        ) ,  url(../img/hero-small.jpg);
     /*Linear gradient adds a color gradient in the div*/
     
     background-size: cover; /*Always fits the bg img in the viewport*/;
     background-position: top; /*Top of the img always stays with top of the container*/
-    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);    
+    //media query for high resolution screen and phone screen width [and is && and , is ||]
+    @media 
+        (min-resolution: 192dpi) and (min-width: 37.5em) , 
+        (min-width: 125em)
+        {
+        background-image: 
+        linear-gradient(
+            to right, /*Direction*/
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)
+        ) ,  url(../img/hero.jpg);
+    }
+    @media (min-width: 2000px){
+        background-image: 
+        linear-gradient(
+            to right, /*Direction*/
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)
+        ) ,  url(../img/hero.jpg);
+    }
     @include respond(phone  ){
         clip-path: polygon( 0 0, 100% 0, 100% 85vh, 0 100%);
 
